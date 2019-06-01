@@ -1,0 +1,1 @@
+az group create -n testing-rg -l uksouth
