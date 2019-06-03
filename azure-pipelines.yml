@@ -20,8 +20,8 @@ stages:
       inputs:
         azureSubscription: 
         scriptLocation: ScriptPath
-        inlineScript:
-        scriptPath: '$(System.DefaultWorkingDirectory)/Infrastructure Code/infrastructure/create-integration-resource-group.cmd'
+        inlineScript: 'az group create -n integration-rg -l uksouth'
+        #scriptPath: '$(System.DefaultWorkingDirectory)/Infrastructure Code/infrastructure/create-integration-resource-group.cmd'
 
 - stage: test
   dependsOn: build
