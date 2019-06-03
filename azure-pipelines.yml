@@ -15,13 +15,6 @@ stages:
       vmImage: 'Ubuntu 16.04'
     steps:
     - script: echo Build
-    - task: AzureCLI@1
-      displayName: 'Azure CLI $(System.DefaultWorkingDirectory)/Infrastructure Code/infrastructure/create-integration-resource-group.cmd'
-      inputs:
-        azureSubscription: 
-        scriptLocation: ScriptPath
-        inlineScript: 'az group create -n integration-rg -l uksouth'
-        #scriptPath: '$(System.DefaultWorkingDirectory)/Infrastructure Code/infrastructure/create-integration-resource-group.cmd'
 
 - stage: test
   dependsOn: build
