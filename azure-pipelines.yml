@@ -20,15 +20,18 @@ stages:
     - script: echo Hello, world!
       displayName: 'Run a one-line script'
 
+    - task: AzureCLI@1
+      inputs:
+        azureSubscription: 'Visual Studio Professional with MSDN (9330c17d-62d0-458a-b76d-2f7bd6f1f44e)'
+        scriptLocation: 'scriptPath'
+        scriptPath: 'https://raw.githubusercontent.com/jeremylindsayni/Simple-Azure-Web-App-Reference-Architecture/master/infrastructure/create-integration-resource-group.cmd'
+        useGlobalConfig: true
+
     - script: |
         echo Add other tasks to build, test, and deploy your project.
         echo See https://aka.ms/yaml
       displayName: 'Run a multi-line script'
-    - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'
+
 
 - stage: deploy_to_integration
   dependsOn: build
