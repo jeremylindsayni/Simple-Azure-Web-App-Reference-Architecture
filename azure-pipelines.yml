@@ -20,6 +20,12 @@ stages:
     - script: echo Hello, world!
       displayName: 'Run a one-line script'
 
+    - task: AzureCLI@1
+      inputs:
+       azureSubscription: ''
+       scriptLocation: 'inlineScript'
+       inlineScript: 'az group create -n integration-rg -l uksouth'
+
     - script: |
         echo Add other tasks to build, test, and deploy your project.
         echo See https://aka.ms/yaml
