@@ -15,6 +15,7 @@ stages:
       vmImage: 'Ubuntu 16.04'
     steps:
     - script: echo Build
+    - task: NuGetToolInstaller@0
 
 - stage: test
   dependsOn: build
