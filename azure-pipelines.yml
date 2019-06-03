@@ -15,6 +15,11 @@ stages:
       vmImage: 'Ubuntu 16.04'
     steps:
     - script: echo Build
+    - task: AzureCLI@1
+      inputs:
+        azureSubscription: 'Visual Studio Professional with MSDN (9330c17d-62d0-458a-b76d-2f7bd6f1f44e)'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'az group create -n integration-rg -l uksouth'
 
 - stage: test
   dependsOn: build
