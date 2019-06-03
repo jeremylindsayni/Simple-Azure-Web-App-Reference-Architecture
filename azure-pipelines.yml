@@ -15,7 +15,11 @@ stages:
       vmImage: 'Ubuntu 16.04'
     steps:
     - script: echo Build
-    - task: NuGetToolInstaller@0
+    - task: AzureCLI@1
+      displayName: 'Azure CLI $(System.DefaultWorkingDirectory)/Infrastructure Code/infrastructure/create-integration-resource-group.cmd'
+      inputs:
+        azureSubscription: 'Visual Studio Professional with MSDN (9330c17d-62d0-458a-b76d-2f7bd6f1f44e)'
+        scriptPath: '$(System.DefaultWorkingDirectory)/Infrastructure Code/infrastructure/create-integration-resource-group.cmd'
 
 - stage: test
   dependsOn: build
