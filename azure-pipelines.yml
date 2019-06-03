@@ -20,6 +20,7 @@ stages:
       inputs:
         azureSubscription: 
         scriptLocation: ScriptPath
+        inlineScript:
         scriptPath: '$(System.DefaultWorkingDirectory)/Infrastructure Code/infrastructure/create-integration-resource-group.cmd'
 
 - stage: test
