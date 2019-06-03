@@ -18,6 +18,8 @@ stages:
     - task: AzureCLI@1
       displayName: 'Azure CLI $(System.DefaultWorkingDirectory)/Infrastructure Code/infrastructure/create-integration-resource-group.cmd'
       inputs:
+        azureSubscription: 
+        scriptLocation: ScriptPath
         scriptPath: '$(System.DefaultWorkingDirectory)/Infrastructure Code/infrastructure/create-integration-resource-group.cmd'
 
 - stage: test
