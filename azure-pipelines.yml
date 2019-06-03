@@ -19,12 +19,12 @@ stages:
     steps:
     - script: echo Hello, world!
       displayName: 'Run a one-line script'
-
+    
     - task: AzureCLI@1
       inputs:
-       azureSubscription: ''
-       scriptLocation: 'inlineScript'
-       inlineScript: 'az group create -n integration-rg -l uksouth'
+        azureSubscription: 'Visual Studio Professional with MSDN(9330c17d-62d0-458a-b76d-2f7bd6f1f44e)'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'az group create -n integration-rg -l uksouth'
 
     - script: |
         echo Add other tasks to build, test, and deploy your project.
