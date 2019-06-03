@@ -17,6 +17,7 @@ stages:
     - script: echo Build
     - task: AzureCLI@1
       inputs:
+        azureSubscription: 
         scriptLocation: 'inlineScript'
         inlineScript: 'az group create -n integration-rg -l uksouth'
 
